@@ -7,7 +7,7 @@ using UnityEngine.InputSystem;
 public class EnemyAI : MonoBehaviour
 
 {
-    [SerializeField] GameObject[] enemyLasers;
+    [SerializeField] GameObject[] EnemyLasers;
     [SerializeField] GameObject[] Player;
     [SerializeField] private float timer = 10f;
     private float laserTime;
@@ -36,18 +36,18 @@ public class EnemyAI : MonoBehaviour
     // Start is called before the first frame update
     private void ActivateEnemyLasers()
     {
-        foreach (GameObject enemylaser in lasersArray)
+        foreach (GameObject EnemyLasers in lasersArray)
         {
-            var eM = enemylaser.GetComponent<ParticleSystem>().emission;
+            var eM = EnemyLasers.GetComponent<ParticleSystem>().emission;
             eM.enabled = true;
         }
     }
 
     private void DeactivateEnemyLasers()
     {
-        foreach (GameObject enemylaser in lasersArray)
+        foreach (GameObject EnemyLasers in lasersArray)
         {
-            var eM = enemylaser.GetComponent<ParticleSystem>().emission;
+            var eM = EnemyLasers.GetComponent<ParticleSystem>().emission;
             eM.enabled = false;
         }
 
