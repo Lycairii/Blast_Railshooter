@@ -22,11 +22,11 @@ public class PlayerControls : MonoBehaviour
     [SerializeField] InputAction playerFiring;
     [SerializeField] GameObject[] lasersArray;
 
-  
+
     [SerializeField] InputAction playerShield;
     [SerializeField] GameObject[] shieldArray;
 
-    
+
 
     private void OnEnable()
     {
@@ -45,7 +45,7 @@ public class PlayerControls : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -55,9 +55,10 @@ public class PlayerControls : MonoBehaviour
         ProcessRotation();
         ProcessFiring();
 
+
     }
 
-   
+
 
     private void ProcessTranslation()
     {
@@ -78,7 +79,7 @@ public class PlayerControls : MonoBehaviour
         float pitch = (transform.localPosition.y + positionPitchFactor) + (yRawInput * movePitchFactor);
         float yaw = transform.localPosition.x + positionYawFactor;
         float roll = xRawInput * moveRollFactor;
-        
+
         transform.localRotation = Quaternion.Euler(pitch, yaw, roll);
     }
     private void ProcessFiring()
@@ -110,17 +111,30 @@ public class PlayerControls : MonoBehaviour
             var eM = laser.GetComponent<ParticleSystem>().emission;
             eM.enabled = false;
         }
-
-     //private void ActivateShield()
-        {
-            
-
-        }
-
-     //private void DeactivateShield()
-        {
-
-
-        }
     }
-}
+
+   // private void ActivateShield()
+    //{
+
+        //foreach (GameObject ForceField in shieldArray)
+       // {
+           // var eM = ForceField.GetComponent<MeshRenderer>();
+           // eM.enabled = true;
+        }
+
+
+   // }
+
+    //private void DeactivateShield()
+    //{
+        //foreach (GameObject ForceField in shieldArray)
+       // {
+          //  var eM = ForceField.GetComponent<MeshRenderer>();
+           // eM.enabled = false;
+
+       // }
+    //}
+
+
+
+
