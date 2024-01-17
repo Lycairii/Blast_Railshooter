@@ -23,7 +23,7 @@ public class PlayerControls : MonoBehaviour
     [SerializeField] GameObject[] lasersArray;
 
 
-    [SerializeField] InputAction playerShield;
+    [SerializeField] InputAction playerForceField;
     [SerializeField] GameObject[] shieldArray;
 
 
@@ -32,14 +32,14 @@ public class PlayerControls : MonoBehaviour
     {
         playerInput.Enable();
         playerFiring.Enable();
-        playerShield.Enable();
+        playerForceField.Enable();
     }
 
     private void OnDisable()
     {
         playerInput.Disable();
         playerFiring.Disable();
-        playerShield.Disable();
+        playerForceField.Disable();
 
     }
     // Start is called before the first frame update
@@ -113,27 +113,41 @@ public class PlayerControls : MonoBehaviour
         }
     }
 
-   // private void ActivateShield()
-    //{
+    private void ProcessForceField()
+    {
+        if (!Input.GetKey(KeyCode.Space))
+        { 
+            ActivateForceField();
+        }
+        else
+        {
+            DeactivateForceField();
+        }
 
-        //foreach (GameObject ForceField in shieldArray)
-       // {
-           // var eM = ForceField.GetComponent<MeshRenderer>();
-           // eM.enabled = true;
+    }
+
+    private void ActivateForceField()
+    {
+
+        foreach (GameObject ForceField in shieldArray)
+        {
+            var eM = ForceField.GetComponent<MeshRenderer>();
+            eM.enabled = true;
         }
 
 
-   // }
+    }
 
-    //private void DeactivateShield()
-    //{
-        //foreach (GameObject ForceField in shieldArray)
-       // {
-          //  var eM = ForceField.GetComponent<MeshRenderer>();
-           // eM.enabled = false;
+    private void DeactivateForceField()
+    {
+        foreach (GameObject ForceField in shieldArray)
+        {
+            var eM = ForceField.GetComponent<MeshRenderer>();
+            eM.enabled = false;
 
-       // }
-    //}
+        }
+    }
+}
 
 
 
