@@ -8,6 +8,7 @@ public class CollisionHandler : MonoBehaviour
 {
     float delay = 1f;
     [SerializeField] ParticleSystem deathVFX;
+    
 
     private void OnTriggerEnter(Collider other)
     {
@@ -28,8 +29,17 @@ public class CollisionHandler : MonoBehaviour
         int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
         SceneManager.LoadScene(0);
     }
+
+    //private void PlayerHealth();
     
+       
+       
+
+
     
+
+    
+
 
         
 }

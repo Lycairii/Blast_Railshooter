@@ -7,19 +7,21 @@ using UnityEngine.InputSystem;
 public class EnemyAI : MonoBehaviour
 
 {
-    [SerializeField] GameObject[] EnemyLasers;
+    [SerializeField] GameObject[] enemyLasers;
     [SerializeField] GameObject[] Player;
-    [SerializeField] private float timer = 5f;
+    [SerializeField] private float timer = 10f;
     private float laserTime;
     private IEnumerable<GameObject> lasersArray;
+    public Transform spawnPoint;
+    public float enemySpeed;
 
     void Update()
     {
         ProcessFiring();
-        
+        ActivateEnemyLasers();
+        DeactivateEnemyLasers();
     }
 
-    
     
 
     private void ProcessFiring()
@@ -28,9 +30,9 @@ public class EnemyAI : MonoBehaviour
         if (laserTime > 0) return;
 
         laserTime = timer;
-
+        
+      
     }
-
     // Start is called before the first frame update
     private void ActivateEnemyLasers()
     {
@@ -49,7 +51,7 @@ public class EnemyAI : MonoBehaviour
             eM.enabled = false;
         }
 
-        //
+        
 
 
 

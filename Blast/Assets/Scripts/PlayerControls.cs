@@ -21,21 +21,25 @@ public class PlayerControls : MonoBehaviour
     [SerializeField] InputAction playerInput;
     [SerializeField] InputAction playerFiring;
     [SerializeField] GameObject[] lasersArray;
-    
 
+  
+    [SerializeField] InputAction playerShield;
+    [SerializeField] GameObject[] shieldArray;
+
+    
 
     private void OnEnable()
     {
         playerInput.Enable();
         playerFiring.Enable();
-
+        playerShield.Enable();
     }
 
     private void OnDisable()
     {
         playerInput.Disable();
         playerFiring.Disable();
-
+        playerShield.Disable();
 
     }
     // Start is called before the first frame update
@@ -105,6 +109,18 @@ public class PlayerControls : MonoBehaviour
         {
             var eM = laser.GetComponent<ParticleSystem>().emission;
             eM.enabled = false;
+        }
+
+     //private void ActivateShield()
+        {
+            
+
+        }
+
+     //private void DeactivateShield()
+        {
+
+
         }
     }
 }
