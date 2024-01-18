@@ -116,10 +116,10 @@ public class PlayerControls : MonoBehaviour
     private void ProcessForceField()
     {
         if (!Input.GetKey(KeyCode.Space))
-        { 
+        {
             ActivateForceField();
         }
-        else
+        else Time.timescale = 2f;
         {
             DeactivateForceField();
         }
