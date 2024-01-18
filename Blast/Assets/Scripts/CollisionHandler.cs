@@ -1,14 +1,16 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+[DebuggerDisplay("{" + nameof(GetDebuggerDisplay) + "(),nq}")]
 public class CollisionHandler : MonoBehaviour
 {
     float delay = 1f;
     [SerializeField] ParticleSystem deathVFX;
-    
+
 
     private void OnTriggerEnter(Collider other)
     {
@@ -30,18 +32,18 @@ public class CollisionHandler : MonoBehaviour
         SceneManager.LoadScene(0);
     }
 
+    private string GetDebuggerDisplay()
+    {
+        return ToString();
+    }
+
     //private void PlayerHealth();
-    
-       
-     //private void ForceField Collisions
-
-        GetComponent<SphereCollider>
 
 
-    
+    //private void ForceField Collisions
 
-    
+    //GetComponent<SphereCollider>
 
-
-        
 }
+
+
