@@ -21,34 +21,28 @@ public class PlayerControls : MonoBehaviour
     [SerializeField] InputAction playerInput;
     [SerializeField] InputAction playerFiring;
     [SerializeField] GameObject[] lasersArray;
+ 
 
-
-    [SerializeField] InputAction playerForceField;
-    [SerializeField] GameObject[] shieldArray;
-    [SerializeField] float time = 1f;
+    [SerializeField] InputAction playerShield;
+    public float timer, interval = 5f;
     
-
-
 
     private void OnEnable()
     {
         playerInput.Enable();
         playerFiring.Enable();
-        playerForceField.Enable();
+
     }
 
     private void OnDisable()
     {
         playerInput.Disable();
         playerFiring.Disable();
-        playerForceField.Disable();
+
 
     }
-    // Start is called before the first frame update
-    void Start()
-    {
 
-    }
+
 
     // Update is called once per frame
     void Update()
@@ -115,43 +109,16 @@ public class PlayerControls : MonoBehaviour
         }
     }
 
-    private void ProcessForceField()
+    public void ProcessShield()
     {
-        if (!Input.GetKey(KeyCode.Space))
+        if (Input.GetKey(KeyCode.Space))
         {
-            print("DEBUG SPACE");
-            ActivateForceField();
+             playerShield.SetActive(true);
         }
-        else Time.timeScale = 2f;
+        else
         {
-            DeactivateForceField();
-        }
-
-    }
-
-    private void ActivateForceField()
-    {
-
-        foreach (GameObject ForceField in shieldArray)
-        {
-            var eM = ForceField.GetComponent<MeshRenderer>();
-            eM.enabled = true;
+            playerShield.SetActive(false);
         }
 
-
-    }
-
-    private void DeactivateForceField()
-    {
-        foreach (GameObject ForceField in shieldArray)
-        {
-            var eM = ForceField.GetComponent<MeshRenderer>();
-            eM.enabled = false;
-
-        }
     }
 }
-
-
-
-
