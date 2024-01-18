@@ -119,6 +119,7 @@ public class PlayerControls : MonoBehaviour
     {
         if (!Input.GetKey(KeyCode.Space))
         {
+            print("DEBUG SPACE");
             ActivateForceField();
         }
         else Time.timeScale = 2f;

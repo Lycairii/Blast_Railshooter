@@ -33,7 +33,9 @@ public class CollisionHandler : MonoBehaviour
     //private void PlayerHealth();
     
        
-       
+     //private void ForceField Collisions
+
+        GetComponent<SphereCollider>
 
 
     
