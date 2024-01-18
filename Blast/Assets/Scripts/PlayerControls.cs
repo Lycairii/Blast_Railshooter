@@ -21,11 +21,14 @@ public class PlayerControls : MonoBehaviour
     [SerializeField] InputAction playerInput;
     [SerializeField] InputAction playerFiring;
     [SerializeField] GameObject[] lasersArray;
- 
+
 
     [SerializeField] InputAction playerShield;
+    public GameObject playerForceField;
+
     public float timer, interval = 5f;
-    
+    private bool isShieldActive;
+    private object isForceField;
 
     private void OnEnable()
     {
@@ -43,14 +46,12 @@ public class PlayerControls : MonoBehaviour
     }
 
 
-
     // Update is called once per frame
     void Update()
     {
         ProcessTranslation();
         ProcessRotation();
         ProcessFiring();
-
 
     }
 
@@ -113,12 +114,29 @@ public class PlayerControls : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.Space))
         {
-             playerShield.SetActive(true);
+            playerForceField.SetActive(true);
         }
         else
         {
-            playerShield.SetActive(false);
+            playerForceField.SetActive(false);
         }
 
     }
-}
+
+    //public bool ProcessShieldActive()
+    //{
+       // if isForceField.Active == (true);
+       // return
+        
+        //else
+        
+            //isForceField.Active == (false);
+            
+        } 
+            
+
+
+
+        
+    
+
