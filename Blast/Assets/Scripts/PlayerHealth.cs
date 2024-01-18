@@ -4,19 +4,17 @@ using UnityEngine;
 
 public class PlayerHealth : MonoBehaviour
 {
-   // [SerializeField] float hitPoints = 100f;
+    public int maxHealth = 100;
+    public int playerHealth;
 
-    //public void TakeDamage(float damage)
-   // {
-        //hitPoints -= damage;
-       // if (hitPoints < = 0)
-        //{
-           // Destroy GameObject.Player;
-      //  }
+    private void Start()
+    {
+        playerHealth = maxHealth;
+    }
 
-
-   // }
-
-
+    public void PlayerTakeDamage (int damage)
+    {
+        playerHealth = playerHealth - damage;
+    }
 }
 
