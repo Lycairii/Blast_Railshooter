@@ -25,6 +25,8 @@ public class PlayerControls : MonoBehaviour
 
     [SerializeField] InputAction playerForceField;
     [SerializeField] GameObject[] shieldArray;
+    [SerializeField] float time = 1f;
+    
 
 
 
@@ -119,7 +121,7 @@ public class PlayerControls : MonoBehaviour
         {
             ActivateForceField();
         }
-        else Time.timescale = 2f;
+        else Time.timeScale = 2f;
         {
             DeactivateForceField();
         }
